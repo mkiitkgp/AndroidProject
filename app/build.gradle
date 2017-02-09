@@ -1,0 +1,46 @@
+apply plugin: 'com.android.application'
+apply plugin: 'com.neenbedankt.android-apt'
+
+android {
+
+    compileSdkVersion 25
+    buildToolsVersion "25.0.2"
+
+    defaultConfig {
+        applicationId "com.example.mohit.quizzer"
+        minSdkVersion 16
+        targetSdkVersion 25
+
+
+        versionCode 1
+        versionName "1.0"
+        multiDexEnabled true
+    }
+
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile 'com.android.support:appcompat-v7:25.1.1'
+
+    // EventBus
+    compile 'org.greenrobot:eventbus:3.0.0'
+    compile 'com.squareup.picasso:picasso:2.5.2'
+    compile 'com.android.support:multidex:1.0.1'
+    // Parceler helper library for making a POJO parcelable
+    compile 'org.parceler:parceler-api:1.1.6'
+    apt "org.parceler:parceler:1.1.6"
+    apt 'org.androidannotations:androidannotations:4.2.0'
+    compile 'org.androidannotations:androidannotations-api:4.2.0'
+
+
+
+}
